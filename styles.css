@@ -24,6 +24,6 @@
 .right {
     border-left: 1px solid black;
 }
-.middle {
-    
+.row div:hover {
+    cursor: pointer;
 }

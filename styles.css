@@ -1,11 +1,15 @@
 #board {
     padding-top: 3em;
     text-align: center;
+    font-family: monospace;
 }
-.row div {
+.row > div {
     float: left;
     height: 100px;
     width: 100px;
+    cursor: pointer;
+    line-height: 100px;
+    font-size: 75px;
 }
 .row {
     clear: both;

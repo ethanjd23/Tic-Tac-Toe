@@ -1,24 +1,28 @@
 let cells = document.querySelectorAll(".row > div");
 let result = document.querySelector(".result");
+let body = document.querySelector("body")
 
 for (let i = 0; i < cells.length; i++) {
   cells[i].addEventListener("click", cellClicked);
-} // adding click tracker
-
-let n = 0; // number of clicks
-
+}; // adding click tracker
+let n = 0; // number of plays on board 
+let x = 0; // number of total clicks used for reset 
 function cellClicked() {
   if (event.target.textContent == "") {
     if (n % 2) {
       event.target.textContent = "O";
     } else if (n % 2 == false) {
       event.target.textContent = "X";
-    }
-    n++; // adding a click event
+    };
     checkWin();
+  };// Makes it so you can't edit once it's clicked
+  if(result.textContent == ""){
+    n++; // adding a click event
+    let x = n;
   };
-  }; // Makes it so you can't edit once it's clicked
-}; // alternates between X an 0 when clicked
+  checkReset();
+  }; // alternates between X an 0 when clicked
+ 
 
 function checkWin() {
   if (
@@ -122,13 +126,17 @@ function checkWin() {
   };
 }; // Checks all win conditions
 
-function checkDraw() {
+function checkReset() {
+  x++;
+  if (x > n + 1) {
+    n = 0; // resetting click number
+    x = 0;
+    result.textContent = ""; // resetting win message
     for (let i = 0; i < cells.length; i++) {
-        if(cells[i].textContent.stringlength > 0) {
-            result.textContent = "Draw"
-        };
+      cells[i].textContent = ""; // resetting all cells 
     };
-};
+  };
+ };
 
 // HINTS
 // cells[2].textcontent

@@ -129,7 +129,7 @@ function checkWin() {
 function checkReset() {
   x++;
   if (x > n + 1) {
-    n = 0; // resetting click number
+    n = 0; // resetting play number
     x = 0;
     result.textContent = ""; // resetting win message
     for (let i = 0; i < cells.length; i++) {
@@ -137,10 +137,3 @@ function checkReset() {
     };
   };
  };
-
-// HINTS
-// cells[2].textcontent
-// if else statements are your friend
-// use === a lot
-// use else if to scaffold conditions
-// use && in if and chain them
